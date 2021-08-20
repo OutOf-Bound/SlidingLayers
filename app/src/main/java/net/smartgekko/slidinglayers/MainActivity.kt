@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTextShadow(x: Float,y: Float,limit: Float=5F){
 
-            textView.setShadowLayer(1F,0-x,y,getColor(R.color.silver))
+            textView.setShadowLayer(1F,0-x,y,getColor(R.color.gray))
 
 
     }
