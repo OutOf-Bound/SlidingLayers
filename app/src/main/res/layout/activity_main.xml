@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_shape"
-        android:backgroundTint="#039BE5"
         android:elevation="5dp"
         android:fontFamily="sans-serif-condensed"
         android:paddingHorizontal="12dp"
