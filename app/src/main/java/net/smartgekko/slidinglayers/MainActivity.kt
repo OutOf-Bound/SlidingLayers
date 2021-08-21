@@ -13,44 +13,24 @@ import java.lang.Math.abs
 
 
 class MainActivity : AppCompatActivity() {
-    val SHADOW_SIZE_LIMIT_X = 8F
-    val SHADOW_SIZE_LIMIT_Y = 8F
+
     lateinit var textView: TextView
-    var sensorManager: SensorManager? = null
-    var sensorMove: Sensor? = null
-    var valueX =0F
-    var valueY = 0F
-    var valueZ = 0F
+    lateinit var movieAdapter: MoveAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         textView = findViewById(R.id.textView)
-
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager?
-        sensorMove = sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-
-        sensorManager!!.registerListener(listenerMove, sensorMove,
-            SensorManager.SENSOR_DELAY_NORMAL);
-
+        movieAdapter = MoveAdapter(this)
+        movieAdapter.setListener(object:MoveListener{
+            override fun onMove(x: Float, y: Float) {
+                setTextShadow(x,y)
+            }
+        })
     }
 
-    var listenerMove: SensorEventListener = object : SensorEventListener {
-        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
-        override fun onSensorChanged(event: SensorEvent) {
-            valueX = 0+event.values[0]*(SHADOW_SIZE_LIMIT_X/10)
-            valueY = 0+event.values[1]*(SHADOW_SIZE_LIMIT_Y/10)
-            valueZ = event.values[2]
-            textView.setText("Shadow")
-            setTextShadow(valueX,valueY)
-        }
-    }
-
-    private fun setTextShadow(x: Float,y: Float,limit: Float=5F){
-
+    private fun setTextShadow(x: Float,y: Float){
             textView.setShadowLayer(10F,0-x,y,getColor(R.color.gray))
-
-
     }
 }
