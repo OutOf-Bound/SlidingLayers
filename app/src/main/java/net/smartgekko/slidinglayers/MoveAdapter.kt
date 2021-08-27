@@ -11,8 +11,10 @@ class MoveAdapter(activity: AppCompatActivity) {
     var valueX =0F
     var valueY = 0F
     var valueZ = 0F
-    val SHADOW_SIZE_LIMIT_X = 8F
-    val SHADOW_SIZE_LIMIT_Y = 8F
+    var angle = 0F
+    val SHADOW_SIZE_LIMIT_X = 10F
+    val SHADOW_SIZE_LIMIT_Y = 10F
+    val SHADOW_SIZE_LIMIT_Z = 10F
    private lateinit var listener: MoveListener
 
     var listenerMove: SensorEventListener = object : SensorEventListener {
@@ -20,8 +22,9 @@ class MoveAdapter(activity: AppCompatActivity) {
         override fun onSensorChanged(event: SensorEvent) {
             valueX = 0+event.values[0]*(SHADOW_SIZE_LIMIT_X/10)
             valueY = 0+event.values[1]*(SHADOW_SIZE_LIMIT_Y/10)
-            valueZ = event.values[2]
-            if(listener != null) listener.onMove(valueX,valueY);
+            valueZ = 0+event.values[2]*(SHADOW_SIZE_LIMIT_Z/10)
+
+            if(listener != null) listener.onMove(valueX,valueY,valueZ,angle);
         }
     }
 
