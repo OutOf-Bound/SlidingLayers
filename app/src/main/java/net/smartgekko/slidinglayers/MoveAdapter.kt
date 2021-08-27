@@ -13,7 +13,6 @@ class MoveAdapter(activity: AppCompatActivity) {
     var valueZ = 0F
     val SHADOW_SIZE_LIMIT_X = 8F
     val SHADOW_SIZE_LIMIT_Y = 8F
-
    private lateinit var listener: MoveListener
 
     var listenerMove: SensorEventListener = object : SensorEventListener {
