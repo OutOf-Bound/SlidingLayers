@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -51,7 +51,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/valueAngle"
+            android:id="@+id/valueAngleA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -59,6 +59,17 @@
             android:text="90"
             android:textAlignment="center"
             android:textColor="#4EE9FB"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/valueAngleB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="90"
+            android:textAlignment="center"
+            android:textColor="#F9A7FF"
             android:textSize="20sp" />
     </LinearLayout>
 
