@@ -18,7 +18,7 @@ class MoveAdapter(activity: AppCompatActivity) {
     val SHADOW_SIZE_LIMIT_X = 0.9F
     val SHADOW_SIZE_LIMIT_Y = 0.9F
     val SHADOW_SIZE_LIMIT_Z = 0.9F
-    val LIMIT_ANGLE_Z = 3.5F
+    val LIMIT_ANGLE_Z = 1.0F
     private lateinit var listener: MoveListener
 
     var listenerMove: SensorEventListener = object : SensorEventListener {
@@ -29,7 +29,7 @@ class MoveAdapter(activity: AppCompatActivity) {
             valueY = 0 + event.values[1]*SHADOW_SIZE_LIMIT_X
             valueZ = 0 + event.values[2]*SHADOW_SIZE_LIMIT_X
 
-            if (abs(valueZ) < LIMIT_ANGLE_Z) {
+            if (valueZ < LIMIT_ANGLE_Z) {
                 if (valueX > 0 && valueY>0) {
                     angleA = valueX *10
                 }
