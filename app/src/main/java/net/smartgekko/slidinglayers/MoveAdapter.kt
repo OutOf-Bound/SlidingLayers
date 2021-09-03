@@ -24,10 +24,10 @@ class MoveAdapter(activity: AppCompatActivity) {
     var listenerMove: SensorEventListener = object : SensorEventListener {
         override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
         override fun onSensorChanged(event: SensorEvent) {
-            var needUpdate: Boolean = true
+
             valueX = 0 + event.values[0]*SHADOW_SIZE_LIMIT_X
-            valueY = 0 + event.values[1]*SHADOW_SIZE_LIMIT_X
-            valueZ = 0 + event.values[2]*SHADOW_SIZE_LIMIT_X
+            valueY = 0 + event.values[1]*SHADOW_SIZE_LIMIT_Y
+            valueZ = 0 + event.values[2]*SHADOW_SIZE_LIMIT_Z
 
             if (valueZ < LIMIT_ANGLE_Z) {
                 if (valueX > 0 && valueY>0) {

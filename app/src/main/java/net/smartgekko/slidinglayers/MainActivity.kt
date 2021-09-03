@@ -2,10 +2,13 @@ package net.smartgekko.slidinglayers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
+import android.view.animation.RotateAnimation
 
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.transition.ChangeBounds
+import androidx.transition.Fade
 import androidx.transition.TransitionManager
 
 
@@ -39,11 +42,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setGlobalPosition(x: Float, y: Float, z: Float, aA: Float, aB: Float) {
-        textView.setShadowLayer(10F, (0.0F - x), y+0.0F, getColor(R.color.gray))
-        val changeBounds:ChangeBounds = ChangeBounds()
-        changeBounds.duration=7000
-        TransitionManager.beginDelayedTransition(rootLayout)
-        textView.rotation = aB+0.0F
+      //  val anticlk_rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_anticlockwise)
+
+        textView.setShadowLayer(10F, (0 - x), y, getColor(R.color.gray))
+      //  textView.startAnimation(anticlk_rotate)
+        textView.rotation = aB
         valueX.setText(x.toString())
         valueY.setText(y.toString())
         valueZ.setText(z.toString())
